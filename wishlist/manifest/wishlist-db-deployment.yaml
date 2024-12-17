@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wishlist-db-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: wishlist-db
+  template:
+    metadata:
+      labels:
+        app: wishlist-db
+    spec:
+      containers:
+        - name: wishlist-db
+          image: postgres:14.8-alpine3.18
+          env:
+            - name: POSTGRES_USER
+              valueFrom:
+                secretKeyRef:
+                  name: db-secret
+                  key: db-user
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: db-secret
+                  key: db-password
+            - name: POSTGRES_DB
+              valueFrom:
+                secretKeyRef:
+                  name: db-secret
+                  key: db-name
+          volumeMounts:
+            - mountPath: /var/lib/postgresql/data
+              name: db-pvc
+      volumes:
+        - name: db-pvc
+          persistentVolumeClaim:
+            claimName: db-pvc-claim
