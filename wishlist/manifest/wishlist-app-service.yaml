@@ -5,7 +5,9 @@ metadata:
 spec:
   selector:
     app: wishlist-app
+  type: LoadBalancer #works only with this type. why?...
   ports:
     - protocol: TCP
-      port: 8181
-      targetPort: 8181
+      port: 8080
+      targetPort: 8080
+      #nodePort: 31010 #external port

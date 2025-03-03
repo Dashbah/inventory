@@ -14,14 +14,8 @@ spec:
     spec:
       containers:
         - name: wishlist-app
-          image: dashbah/withlist-app-local-macos:latest
-#          image: wishlisthse-wishlist-app
-          imagePullPolicy: IfNotPresent
-          ports:
-            - containerPort: 8180
+          image: dashbah/wishlist:2.0.2
           env:
-            - name: SERVER_PORT
-              value: "8181"
             - name: SPRING_DATASOURCE_URL
               valueFrom:
                 secretKeyRef:

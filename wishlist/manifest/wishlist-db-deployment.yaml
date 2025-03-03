@@ -37,4 +37,4 @@ spec:
       volumes:
         - name: db-pvc
           persistentVolumeClaim:
-            claimName: db-pvc-claim
+            claimName: db-pvc-claim #запрос на выделение постоянного хранилища
