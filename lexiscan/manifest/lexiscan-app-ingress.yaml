@@ -16,4 +16,4 @@ spec:
               service:
                 name: lexiscan-app-service
                 port:
-                  number: 8181
+                  number: 8080

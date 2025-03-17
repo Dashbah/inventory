@@ -19,14 +19,14 @@ spec:
             - name: SPRING_DATASOURCE_URL
               valueFrom:
                 secretKeyRef:
-                  name: lexiscan-db-secret
+                  name: db-secret
                   key: datasource-url
           volumeMounts:
             - mountPath: /app/build/libs
-              name: lexiscan-app-volume
+              name: app-volume
       volumes:
-        - name: lexiscan-app-volume
+        - name: app-volume
           emptyDir: {}
-        - name: lexiscan-config-volume
+        - name: config-volume
           configMap:
-            name: lexiscan-app-configmap
+            name: app-configmap

@@ -1,14 +1,20 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: lexiscan-app-configmap
+  name: app-configmap
 data:
   application.properties: |
+    server:
+      port: 8181
+      #  in bytes - for image uploading
+      max-http-request-header-size: 1073741824
+    
     spring:
       datasource:
-        url: jdbc:postgresql://localhost:5433/lexiscan_db
-        username: postgres
-        password: postgres
+        #    take it from secrets
+        url: "jdbc:postgresql://wishlist-db-service/wishlist_db"
+        username: admin
+        password: 123qwe
       jpa:
         hibernate:
           ddl-auto: none
@@ -52,11 +58,6 @@ data:
       url: "http://localhost:8282/ml-model/count"
     
     storage:
-      url: jdbc:postgresql://localhost:5433/lexiscan_db
-      username: postgres
-      password: postgres
-    
-    server:
-      port: 8282
-      #  in bytes - for image uploading
-      max-http-request-header-size: 1073741824
+      url: "jdbc:postgresql://wishlist-db-service/wishlist_db"
+      username: admin
+      password: 123qwe  

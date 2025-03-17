@@ -15,27 +15,26 @@ spec:
       containers:
         - name: lexiscan-db
           image: postgres:14.8-alpine3.18
-          args: [ "-c", "port=5433" ]  # Указываем порт 5433
           env:
             - name: POSTGRES_USER
               valueFrom:
                 secretKeyRef:
-                  name: lexiscan-db-secret
+                  name: db-secret
                   key: db-user
             - name: POSTGRES_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: lexiscan-db-secret
+                  name: db-secret
                   key: db-password
             - name: POSTGRES_DB
               valueFrom:
                 secretKeyRef:
-                  name: lexiscan-db-secret
+                  name: db-secret
                   key: db-name
           volumeMounts:
             - mountPath: /var/lib/postgresql/data
-              name: lexiscan-db-pvc
+              name: db-pvc
       volumes:
-        - name: lexiscan-db-pvc
+        - name: db-pvc
           persistentVolumeClaim:
-            claimName: lexiscan-db-pvc-claim #запрос на выделение постоянного хранилища
+            claimName: db-pvc-claim #запрос на выделение постоянного хранилища
