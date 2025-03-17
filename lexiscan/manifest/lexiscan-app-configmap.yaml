@@ -24,7 +24,7 @@ data:
       thymeleaf:
         cache: false
       application:
-        name: lexiscan-auth
+        name: lexiscan-app
       servlet:
         multipart:
           enabled: true
