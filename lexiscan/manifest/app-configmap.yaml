@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: lexiscan-app-configmap
+data:
+  application.properties: |
+    server:
+      port: 8181
+    
+    spring:
+      datasource:
+        #    take it from secrets
+        url: "jdbc:postgresql://wishlist-db-service/wishlist_db"
+        username: admin
+        password: 123qwe
+      jpa:
+        hibernate:
+          ddl-auto: none
+        show-sql: true
+      mvc:
+        pathmatch:
+          matching-strategy: ant_path_matcher
+      liquibase:
+        change-log: classpath:database/changelog/InitialMigration.xml
+        enabled: true
+        drop-first: false
+        default-schema: public

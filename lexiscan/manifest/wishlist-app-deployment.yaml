@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wishlist-app-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: wishlist-app
+  template:
+    metadata:
+      labels:
+        app: wishlist-app
+    spec:
+      containers:
+        - name: wishlist-app
+          image: dashbah/wishlist:2.0.6
+          env:
+            - name: SPRING_DATASOURCE_URL
+              valueFrom:
+                secretKeyRef:
+                  name: db-secret
+                  key: datasource-url
+          volumeMounts:
+            - mountPath: /app/build/libs
+              name: app-volume
+      volumes:
+        - name: app-volume
+          emptyDir: {}
+        - name: config-volume
+          configMap:
+            name: app-configmap
