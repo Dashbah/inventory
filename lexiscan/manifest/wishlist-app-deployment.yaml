@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: wishlist-app-deployment
+  name: lexiscan-app-deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: wishlist-app
+      app: lexiscan-app
   template:
     metadata:
       labels:
-        app: wishlist-app
+        app: lexiscan-app
     spec:
       containers:
-        - name: wishlist-app
-          image: dashbah/wishlist:2.0.6
+        - name: lexiscan-app
+          image: dashbah/lexiscan-app:latest
           env:
             - name: SPRING_DATASOURCE_URL
               valueFrom:

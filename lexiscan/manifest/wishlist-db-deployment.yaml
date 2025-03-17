@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: wishlist-db-deployment
+  name: lexiscan-db-deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: wishlist-db
+      app: lexiscan-db
   template:
     metadata:
       labels:
-        app: wishlist-db
+        app: lexiscan-db
     spec:
       containers:
-        - name: wishlist-db
+        - name: lexiscan-db
           image: postgres:14.8-alpine3.18
           env:
             - name: POSTGRES_USER

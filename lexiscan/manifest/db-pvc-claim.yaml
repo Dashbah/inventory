@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: db-pvc-claim
+  name: lexiscan-db-pvc-claim
 spec:
   accessModes:
     - ReadWriteOnce
