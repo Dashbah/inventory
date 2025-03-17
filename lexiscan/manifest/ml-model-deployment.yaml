@@ -23,7 +23,7 @@ spec:
                   key: datasource-url
           volumeMounts:
             - mountPath: /app/build/libs
-              name: app-volume
+              name: ml-model-app-volume
       volumes:
         - name: ml-model-app-volume
           emptyDir: {}
