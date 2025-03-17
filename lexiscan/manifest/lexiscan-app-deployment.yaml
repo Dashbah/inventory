@@ -23,10 +23,10 @@ spec:
                   key: datasource-url
           volumeMounts:
             - mountPath: /app/build/libs
-              name: app-volume
+              name: lexiscan-app-volume
       volumes:
-        - name: app-volume
+        - name: lexiscan-app-volume
           emptyDir: {}
-        - name: config-volume
+        - name: lexiscan-config-volume
           configMap:
             name: lexiscan-app-configmap

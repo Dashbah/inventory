@@ -25,8 +25,5 @@ spec:
             - mountPath: /app/build/libs
               name: app-volume
       volumes:
-        - name: app-volume
+        - name: ml-model-app-volume
           emptyDir: {}
-        - name: config-volume
-          configMap:
-            name: app-configmap
