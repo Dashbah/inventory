@@ -6,7 +6,7 @@ data:
   application.properties: |
     spring:
       datasource:
-        url: jdbc:postgresql://localhost:5432/lexiscan_cloud
+        url: jdbc:postgresql://localhost:5433/lexiscan_db
         username: postgres
         password: postgres
       jpa:
@@ -49,12 +49,12 @@ data:
             enabled: true
     
     model:
-      url: "http://127.0.0.1:8080/m-model/count"
+      url: "http://localhost:8282/ml-model/count"
     
     storage:
-      url: jdbc:postgresql://localhost:5432/lexiscan_dev
-      username: admin
-      password: 123qwe
+      url: jdbc:postgresql://localhost:5433/lexiscan_db
+      username: postgres
+      password: postgres
     
     server:
       port: 8282
