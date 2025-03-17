@@ -15,6 +15,7 @@ spec:
       containers:
         - name: lexiscan-db
           image: postgres:14.8-alpine3.18
+          args: [ "-c", "port=5433" ]  # Указываем порт 5433
           env:
             - name: POSTGRES_USER
               valueFrom:
