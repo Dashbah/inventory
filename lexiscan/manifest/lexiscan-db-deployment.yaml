@@ -19,22 +19,22 @@ spec:
             - name: POSTGRES_USER
               valueFrom:
                 secretKeyRef:
-                  name: db-secret
+                  name: lexiscan-db-secret
                   key: db-user
             - name: POSTGRES_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: db-secret
+                  name: lexiscan-db-secret
                   key: db-password
             - name: POSTGRES_DB
               valueFrom:
                 secretKeyRef:
-                  name: db-secret
+                  name: lexiscan-db-secret
                   key: db-name
           volumeMounts:
             - mountPath: /var/lib/postgresql/data
-              name: db-pvc
+              name: lexiscan-db-pvc
       volumes:
-        - name: db-pvc
+        - name: lexiscan-db-pvc
           persistentVolumeClaim:
-            claimName: db-pvc-claim #запрос на выделение постоянного хранилища
+            claimName: lexiscan-db-pvc-claim #запрос на выделение постоянного хранилища
