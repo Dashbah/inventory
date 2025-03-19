@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: wishlist-app
-          image: dashbah/wishlist:2.0.6
+          image: dashbah/wishlist-app:latest
           env:
             - name: SPRING_DATASOURCE_URL
               valueFrom:
