@@ -1,20 +1,18 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: app-configmap
+  name: lexiscan-app-configmap
 data:
   application.properties: |
     server:
       port: 8181
-      #  in bytes - for image uploading
-      max-http-request-header-size: 1073741824
     
     spring:
       datasource:
         #    take it from secrets
-        url: "jdbc:postgresql://wishlist-db-service/wishlist_db"
-        username: admin
-        password: 123qwe
+        url: ${SPRING_DATASOURCE_URL}
+        username: ${SPRING_DATASOURCE_USERNAME}
+        password: ${SPRING_DATASOURCE_PASSWORD}
       jpa:
         hibernate:
           ddl-auto: none
@@ -55,9 +53,9 @@ data:
             enabled: true
     
     model:
-      url: "http://localhost:8282/ml-model/count"
+      url: ${ML_MODEL_URL}
     
     storage:
-      url: "jdbc:postgresql://wishlist-db-service/wishlist_db"
-      username: admin
-      password: 123qwe  
+      url: ${SPRING_DATASOURCE_URL}
+      username: ${SPRING_DATASOURCE_USERNAME}
+      password: ${SPRING_DATASOURCE_PASSWORD}

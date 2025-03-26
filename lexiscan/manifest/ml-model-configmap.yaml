@@ -4,6 +4,9 @@ metadata:
   name: ml-model-configmap
 data:
   application.properties: |
+    server:
+      port: 8282
+    
     spring:
       mvc:
         pathmatch:
@@ -18,13 +21,13 @@ data:
           max-file-size: 10MB
           max-request-size: 10MB
     
-    # метрики доступны здесь http://localhost:8181/actuator/prometheus
-    # source: https://habr.com/ru/articles/548700/
+    #метрики доступны здесь http://localhost:8181/actuator/prometheus
+    #source: https://habr.com/ru/articles/548700/
     management:
       endpoints:
         web:
           exposure:
-            #        add info, metrics
+            #add info, metrics
             include: health,prometheus
       metrics:
         distribution:
@@ -34,8 +37,3 @@ data:
         metrics:
           export:
             enabled: true
-    
-    server:
-      port: 8086
-      #  in bytes - for image uploading
-      max-http-request-header-size: 1073741824

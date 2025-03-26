@@ -15,12 +15,6 @@ spec:
       containers:
         - name: ml-model
           image: dashbah/lexiscan-ml-model:latest
-          env:
-            - name: SPRING_DATASOURCE_URL
-              valueFrom:
-                secretKeyRef:
-                  name: lexiscan-db-secret
-                  key: datasource-url
           volumeMounts:
             - mountPath: /app/build/libs
               name: ml-model-app-volume

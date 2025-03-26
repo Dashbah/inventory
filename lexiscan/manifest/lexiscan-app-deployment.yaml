@@ -21,6 +21,18 @@ spec:
                 secretKeyRef:
                   name: db-secret
                   key: datasource-url
+            - name: SPRING_DATASOURCE_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: db-secret
+                  key: db-user
+            - name: SPRING_DATASOURCE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: db-secret
+                  key: db-password
+            - name: ML_MODEL_URL
+              value: "http://localhost:8282/ml-model/count"
           volumeMounts:
             - mountPath: /app/build/libs
               name: app-volume
@@ -29,4 +41,4 @@ spec:
           emptyDir: {}
         - name: config-volume
           configMap:
-            name: app-configmap
+            name: lexiscan-app-configmap
