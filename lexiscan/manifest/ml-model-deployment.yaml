@@ -26,3 +26,5 @@ spec:
         - name: model-volume
           hostPath:
             path: /mnt/ml-models/
+          persistentVolumeClaim:
+            claimName: model-pvc
