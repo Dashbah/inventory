@@ -19,11 +19,11 @@ spec:
             - name: ml-model-app-volume
               mountPath: /app/build/libs
             - name: model-volume
-              mountPath: /app/models
+              mountPath: /models
       volumes:
         - name: ml-model-app-volume
           emptyDir: {}
         - name: model-volume
           hostPath:
-            path: /mnt/ml-models
+            path: /mnt/ml-models/best.onnx
             type: File
