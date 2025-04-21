@@ -3,7 +3,7 @@ kind: ConfigMap
 metadata:
   name: lexiscan-app-configmap
 data:
-  application.properties: |
+  application.yml: |
     server:
       port: 8181
     

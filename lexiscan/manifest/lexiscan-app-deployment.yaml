@@ -36,16 +36,13 @@ spec:
           ports:
             - containerPort: 8181
           volumeMounts:
-            - name: config-volume
-              mountPath: /config
+            - name: spring-application-config
+              mountPath: /app/config
             - name: app-volume
               mountPath: /app/build/libs
       volumes:
         - name: app-volume
           emptyDir: {}
-        - name: config-volume
+        - name: spring-application-config
           configMap:
             name: lexiscan-app-configmap
-            items:
-              - key: application.properties
-                path: application.properties
