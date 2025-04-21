@@ -32,13 +32,20 @@ spec:
                   name: db-secret
                   key: db-password
             - name: ML_MODEL_URL
-              value: "http://localhost:8282/ml-model/count"
+              value: "http://ml-model-service:5000/predict"
+          ports:
+            - containerPort: 8181
           volumeMounts:
-            - mountPath: /app/build/libs
-              name: app-volume
+            - name: config-volume
+              mountPath: /config
+            - name: app-volume
+              mountPath: /app/build/libs
       volumes:
         - name: app-volume
           emptyDir: {}
         - name: config-volume
           configMap:
             name: lexiscan-app-configmap
+            items:
+              - key: application.properties
+                path: application.properties
