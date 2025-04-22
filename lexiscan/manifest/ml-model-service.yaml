@@ -8,6 +8,6 @@ spec:
   type: LoadBalancer
   ports:
     - protocol: TCP
-      port: 8282
-      targetPort: 8282
+      port: 5000
+      targetPort: 5000
       #nodePort: 31010 #external port
