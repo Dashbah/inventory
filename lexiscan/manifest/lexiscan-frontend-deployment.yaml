@@ -15,8 +15,6 @@ spec:
       containers:
         - name: lexiscan-frontend
           image: dashbah/lexiscan-front-app:latest
-          ports:
-            - containerPort: 3005
           volumeMounts:
             - name: lexiscan-frontend-app-volume
               mountPath: /app/build/libs
