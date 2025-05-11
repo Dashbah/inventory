@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lexiscan-frontend-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: lexiscan-frontend
+  template:
+    metadata:
+      labels:
+        app: lexiscan-frontend
+    spec:
+      containers:
+        - name: lexiscan-frontend
+          image: dashbah/lexiscan-front-app:latest
+          volumeMounts:
+            - name: lexiscan-frontend-app-volume
+              mountPath: /app/build/libs
+      volumes:
+        - name: lexiscan-frontend-app-volume
+          emptyDir: {}
