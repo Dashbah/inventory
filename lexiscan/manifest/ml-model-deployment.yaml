@@ -18,6 +18,11 @@ spec:
           volumeMounts:
             - name: ml-model-app-volume
               mountPath: /app/build/libs
+            - name: model-volume
+              mountPath: /app/models  #Путь в контейнере
       volumes:
         - name: ml-model-app-volume
           emptyDir: {}
+        - name: model-volume
+          hostPath:
+            path: /models   # Абсолютный путь на хосте

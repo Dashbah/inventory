@@ -6,7 +6,7 @@ data:
   application.yml: |
     server:
       port: 8181
-    
+
     spring:
       datasource:
         #    take it from secrets
@@ -34,7 +34,7 @@ data:
           enabled: true
           max-file-size: 10MB
           max-request-size: 10MB
-    
+
     #метрики доступны здесь http://localhost:port/actuator/prometheus
     #source: https://habr.com/ru/articles/548700/
     management:
@@ -51,11 +51,14 @@ data:
         metrics:
           export:
             enabled: true
-    
+
     model:
       url: ${ML_MODEL_URL}
-    
+
     storage:
       url: ${SPRING_DATASOURCE_URL}
       username: ${SPRING_DATASOURCE_USERNAME}
       password: ${SPRING_DATASOURCE_PASSWORD}
+
+    swagger:
+      url: http://89.169.154.190:8080

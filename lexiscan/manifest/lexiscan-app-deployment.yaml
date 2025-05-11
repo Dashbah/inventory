@@ -32,7 +32,7 @@ spec:
                   name: db-secret
                   key: db-password
             - name: ML_MODEL_URL
-              value: "http://ml-model-service:5000/predict"
+              value: "http://ml-model-service:5000/analyze-handwriting"
           ports:
             - containerPort: 8181
           volumeMounts:
